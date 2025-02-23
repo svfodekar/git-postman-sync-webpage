@@ -20,7 +20,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             padding: 20px;
             animation: fadeIn 1.5s ease-in-out;
         }
@@ -33,19 +33,19 @@
             box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
             animation: slideDown 1s ease-out;
             max-width: 700px;
-            width: 90%;
+            width: 100%;
         }
 
         h1 {
-            font-size: 36px;
+            font-size: 2rem;
             margin-bottom: 10px;
             animation: zoomIn 1s ease-in-out;
         }
 
         .intro {
-            font-size: 18px;
+            font-size: 1rem;
             line-height: 1.6;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             animation: fadeIn 1.5s ease-in-out;
         }
 
@@ -60,9 +60,10 @@
         .download-btn {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
-            padding: 14px 24px;
-            font-size: 18px;
+            padding: 12px 20px;
+            font-size: 1rem;
             font-weight: bold;
             text-decoration: none;
             border-radius: 8px;
@@ -70,10 +71,12 @@
             background: rgba(255, 255, 255, 0.2);
             transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
             animation: bounceIn 1.2s ease-in-out;
+            width: 100%;
+            max-width: 250px;
         }
 
         .download-btn:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
             background: rgba(255, 255, 255, 0.4);
             box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.4);
         }
@@ -82,20 +85,20 @@
             background: rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 10px;
-            margin-top: 25px;
+            margin-top: 20px;
             backdrop-filter: blur(10px);
             animation: fadeInUp 1.5s ease-in-out;
             text-align: left;
         }
 
         .app-info h2 {
-            font-size: 24px;
-            margin-bottom: 15px;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
             text-align: center;
         }
 
         .app-info p {
-            font-size: 16px;
+            font-size: 1rem;
             margin-bottom: 15px;
             text-align: justify;
         }
@@ -107,7 +110,7 @@
         }
 
         .app-info ul li {
-            font-size: 16px;
+            font-size: 1rem;
             margin-bottom: 10px;
             display: flex;
             align-items: center;
@@ -152,6 +155,68 @@
             from { transform: translateY(20px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px;
+                width: 90%;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .intro {
+                font-size: 0.9rem;
+            }
+
+            .download-btn {
+                font-size: 0.9rem;
+                padding: 10px 18px;
+            }
+
+            .app-info {
+                padding: 15px;
+            }
+
+            .app-info h2 {
+                font-size: 1.3rem;
+            }
+
+            .app-info p, .app-info ul li {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+                width: 95%;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .intro {
+                font-size: 0.8rem;
+            }
+
+            .download-btn {
+                font-size: 0.8rem;
+                padding: 10px 15px;
+            }
+
+            .app-info h2 {
+                font-size: 1.2rem;
+            }
+
+            .app-info p, .app-info ul li {
+                font-size: 0.85rem;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -163,27 +228,21 @@
         </p>
 
         <div class="btn-container">
-            <a href="your-mac-app.dmg" download class="download-btn">
-                🍏 Download for Mac
-            </a>
-            <a href="your-linux-app.deb" download class="download-btn">
-                🐧 Download for Linux
-            </a>
-            <a href="your-windows-app.exe" download class="download-btn">
-                🖥️ Download for Windows
-            </a>
+            <a href="your-mac-app.dmg" download class="download-btn"> 🍏 Download for Mac </a>
+            <a href="your-linux-app.deb" download class="download-btn"> 🐧 Download for Linux </a>
+            <a href="your-windows-app.exe" download class="download-btn"> 🖥️ Download for Windows </a>
         </div>
 
         <div class="app-info">
             <h2>Key Features</h2>
             <p>Enhance your workflow with Git-powered Postman collection synchronization:</p>
             <ul>
-            <li><i class="fas fa-check-circle"></i> Free & Open Source – No cost, fully transparent, and community-driven.</li>
-            <li><i class="fas fa-check-circle"></i> Automated Sync – Keep collections updated in Git in real-time.</li>
-            <li><i class="fas fa-check-circle"></i> Version Control – Track changes, roll back updates effortlessly.</li>
-            <li><i class="fas fa-check-circle"></i> Merge Conflict Resolution – Handle changes smoothly.</li>
-            <li><i class="fas fa-check-circle"></i> Seamless Team Collaboration – Work together efficiently.</li>
-            <li><i class="fas fa-check-circle"></i> Secure API & Git Integration – Maintain data integrity.</li>
+                <li>Free & Open Source – No cost, fully transparent, and community-driven.</li>
+                <li>Automated Sync – Keep collections updated in Git in real-time.</li>
+                <li>Version Control – Track changes, roll back updates effortlessly.</li>
+                <li>Merge Conflict Resolution – Handle changes smoothly.</li>
+                <li>Seamless Team Collaboration – Work together efficiently.</li>
+                <li>Secure API & Git Integration – Maintain data integrity.</li>
             </ul>
         </div>
     </div>
