@@ -5,74 +5,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Git-Postman Sync Engine</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            padding: 21px;
-            background-color: #f4f4f4;
-            text-align: center;
-        }
-        .container {
-            max-width: 600px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #333;
-        }
-        p {
-            text-align: justify;
-            line-height: 1.6;
-        }
-        .features {
-            text-align: left;
-            margin-top: 20px;
-        }
-        .features ul {
-            padding-left: 20px;
-        }
-        .download-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            margin-top: 20px;
-            font-size: 16px;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
             color: white;
-            background-color: #007bff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
         }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            animation: slideDown 1s ease-out;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .download-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 6px;
+            color: white;
+            background: rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s, background 0.3s;
+            animation: fadeInUp 1.2s ease-in-out;
+        }
+
         .download-btn:hover {
-            background-color: #0056b3;
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .icon {
+            font-size: 20px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
     </style>
 </head>
 <body>
+
     <div class="container">
         <h1>Git-Postman Sync Engine</h1>
         <p>
-            Git-Postman Sync Engine is an application designed to synchronize your Postman collections 
-            with a Git repository. It ensures centralized management and version control of collections, 
-            allowing teams to collaborate efficiently and maintain consistent API workflows. 
-            This tool is ideal for organizations looking to streamline the management of shared Postman collections 
-            while leveraging Git for version control.
+            Easily synchronize your Postman collections with a Git repository for centralized 
+            version control, seamless team collaboration, and conflict resolution.
         </p>
 
-        <div class="features">
-            <h2>Features</h2>
-            <ul>
-                <li>Synchronize Postman collections with a Git repository.</li>
-                <li>Maintain a centralized and version-controlled source of collections.</li>
-                <li>Resolve merge conflicts during synchronization.</li>
-                <li>Simplify team collaboration on API workflows.</li>
-                <li>Secure integration with Postman API and Git.</li>
-            </ul>
+        <div class="btn-container">
+            <a href="your-mac-app.dmg" download class="download-btn">
+                🍏 Mac App
+            </a>
+            <a href="your-linux-app.deb" download class="download-btn">
+                🐧 Linux App
+            </a>
+            <a href="your-windows-app.exe" download class="download-btn">
+                🖥️ Windows App
+            </a>
         </div>
-
-        <a href="your-exe-file.exe" download class="download-btn">Download Now</a>
     </div>
+
 </body>
 </html>
