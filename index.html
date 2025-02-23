@@ -82,26 +82,31 @@
             max-width: 600px;
             height: 300px;
             margin: 20px auto;
+            position: relative;
             border-radius: 12px;
             overflow: hidden;
             border: 3px solid white;
-            position: relative;
-        }
-
-        .slideshow-wrapper {
+            background: rgba(255, 255, 255, 0.1);
             display: flex;
-            width: calc(100% * 5); /* Number of images */
-            height: 100%;
-            transition: transform 1s ease-in-out;
+            align-items: center;
+            justify-content: center;
         }
 
         .slide {
-            flex: 0 0 100%;
             width: 100%;
             height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
             object-fit: contain; /* Ensures full image is visible */
-            background-color: black; /* Adds a background if image has transparency */
         }
+
+        .slide.active {
+            opacity: 1;
+        }
+
     </style>
 </head>
 <body>
@@ -119,28 +124,24 @@
         </div>
 
         <div class="slideshow-container">
-            <div class="slideshow-wrapper">
-                <img src="one.png" class="slide" alt="App Screenshot">
-                <img src="two.png" class="slide" alt="App Screenshot">
-                <img src="three.png" class="slide" alt="App Screenshot">
-                <img src="four.png" class="slide" alt="App Screenshot">
-            </div>
+            <img src="one.png" class="slide active" alt="App Screenshot">
+            <img src="two.png" class="slide" alt="App Screenshot">
+            <img src="three.png" class="slide" alt="App Screenshot">
+            <img src="four.png" class="slide" alt="App Screenshot">
         </div>
     </div>
 
     <script>
-        let slideIndex = 0;
-        const slides = document.querySelectorAll(".slide");
-        const totalSlides = slides.length;
-        const slideshowWrapper = document.querySelector(".slideshow-wrapper");
+        let slides = document.querySelectorAll('.slide');
+        let currentIndex = 0;
 
         function showNextSlide() {
-            slideIndex = (slideIndex + 1) % totalSlides;
-            const offset = -slideIndex * 100;
-            slideshowWrapper.style.transform = `translateX(${offset}%)`;
+            slides[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % slides.length;
+            slides[currentIndex].classList.add('active');
         }
 
-        setInterval(showNextSlide, 3000); // Slower transition (3 seconds)
+        setInterval(showNextSlide, 2000); // Faster switching (2 seconds)
     </script>
 
 </body>
