@@ -9,41 +9,43 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to right, #4facfe, #00f2fe);
+            background: linear-gradient(to right, #141e30, #243b55);
             color: white;
             text-align: center;
-            height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+            height: 100vh;
             padding: 20px;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         .container {
             background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-            animation: fadeIn 1.5s ease-in-out;
-            max-width: 600px;
+            padding: 40px;
+            border-radius: 12px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+            animation: slideDown 1s ease-out;
+            max-width: 700px;
+            width: 90%;
         }
 
         h1 {
-            font-size: 32px;
-            margin-bottom: 15px;
-            animation: slideDown 1s ease-out;
+            font-size: 36px;
+            margin-bottom: 10px;
+            animation: zoomIn 1s ease-in-out;
         }
 
-        p {
-            font-size: 16px;
+        .intro {
+            font-size: 18px;
             line-height: 1.6;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             animation: fadeIn 1.5s ease-in-out;
         }
 
@@ -52,61 +54,103 @@
             justify-content: center;
             gap: 15px;
             flex-wrap: wrap;
+            margin-top: 15px;
         }
 
         .download-btn {
             display: flex;
             align-items: center;
             gap: 8px;
-            padding: 12px 20px;
-            font-size: 16px;
+            padding: 14px 24px;
+            font-size: 18px;
             font-weight: bold;
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 8px;
             color: white;
             background: rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s, background 0.3s;
-            animation: fadeInUp 1.2s ease-in-out;
+            transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+            animation: bounceIn 1.2s ease-in-out;
         }
 
         .download-btn:hover {
-            transform: scale(1.05);
-            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.4);
+            box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.4);
         }
 
-        .icon {
-            font-size: 20px;
+        .app-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 25px;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 1.5s ease-in-out;
+            text-align: left;
         }
+
+        .app-info h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .app-info p {
+            font-size: 16px;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .app-info ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .app-info ul li {
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        .app-info ul li::before {
+            content: "✅";
+            margin-right: 10px;
+            font-size: 18px;
+            color: #00ff7f;
+        }
+
+        .app-info ul li:nth-child(1) { animation-delay: 0.2s; }
+        .app-info ul li:nth-child(2) { animation-delay: 0.4s; }
+        .app-info ul li:nth-child(3) { animation-delay: 0.6s; }
+        .app-info ul li:nth-child(4) { animation-delay: 0.8s; }
+        .app-info ul li:nth-child(5) { animation-delay: 1s; }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         @keyframes slideDown {
-            from {
-                transform: translateY(-20px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes bounceIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         @keyframes fadeInUp {
-            from {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
     </style>
 </head>
@@ -114,21 +158,33 @@
 
     <div class="container">
         <h1>Git-Postman Sync Engine</h1>
-        <p>
-            Easily synchronize your Postman collections with a Git repository for centralized 
-            version control, seamless team collaboration, and conflict resolution.
+        <p class="intro">
+            Effortlessly manage, synchronize, and version-control your Postman collections with seamless Git integration. Enhance collaboration and ensure consistency across teams.
         </p>
 
         <div class="btn-container">
             <a href="your-mac-app.dmg" download class="download-btn">
-                🍏 Mac App
+                🍏 Download for Mac
             </a>
             <a href="your-linux-app.deb" download class="download-btn">
-                🐧 Linux App
+                🐧 Download for Linux
             </a>
             <a href="your-windows-app.exe" download class="download-btn">
-                🖥️ Windows App
+                🖥️ Download for Windows
             </a>
+        </div>
+
+        <div class="app-info">
+            <h2>Key Features</h2>
+            <p>Enhance your workflow with Git-powered Postman collection synchronization:</p>
+            <ul>
+            <li><i class="fas fa-check-circle"></i> Free & Open Source – No cost, fully transparent, and community-driven.</li>
+            <li><i class="fas fa-check-circle"></i> Automated Sync – Keep collections updated in Git in real-time.</li>
+            <li><i class="fas fa-check-circle"></i> Version Control – Track changes, roll back updates effortlessly.</li>
+            <li><i class="fas fa-check-circle"></i> Merge Conflict Resolution – Handle changes smoothly.</li>
+            <li><i class="fas fa-check-circle"></i> Seamless Team Collaboration – Work together efficiently.</li>
+            <li><i class="fas fa-check-circle"></i> Secure API & Git Integration – Maintain data integrity.</li>
+            </ul>
         </div>
     </div>
 
