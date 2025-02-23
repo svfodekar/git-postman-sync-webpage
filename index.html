@@ -87,6 +87,9 @@
             overflow: hidden;
             border: 3px solid white;
             background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .slide {
@@ -96,8 +99,8 @@
             top: 0;
             left: 0;
             opacity: 0;
-            transition: opacity 1s ease-in-out;
-            object-fit: cover;
+            transition: opacity 0.8s ease-in-out;
+            object-fit: contain; /* Ensures full image is visible */
         }
 
         .slide.active {
@@ -121,10 +124,10 @@
         </div>
 
         <div class="slideshow-container">
-            <img src="one.png" class="slide active" alt="App Screenshot">
-            <img src="two.png" class="slide" alt="App Screenshot">
-            <img src="three.png" class="slide" alt="App Screenshot">
-            <img src="four.png" class="slide" alt="App Screenshot">
+            <img src="one.jpg" class="slide active" alt="App Screenshot">
+            <img src="two.jpg" class="slide" alt="App Screenshot">
+            <img src="three.jpg" class="slide" alt="App Screenshot">
+            <img src="four.jpg" class="slide" alt="App Screenshot">
             <img src="default.jpg" class="slide" alt="Default Image">
         </div>
     </div>
@@ -139,7 +142,7 @@
             slides[currentIndex].classList.add('active');
         }
 
-        setInterval(showNextSlide, 3000);
+        setInterval(showNextSlide, 2000); // Faster switching (2 seconds)
     </script>
 
 </body>
